@@ -37,7 +37,7 @@ public class Galamsey{
     }
     
     public Position getPosition(){
-        return Position;
+        return position;
     }
 
     public String getVegColor(){
