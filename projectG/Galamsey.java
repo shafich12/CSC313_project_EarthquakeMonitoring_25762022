@@ -1,21 +1,25 @@
 import java.time.Year;
 
 public class Galamsey{
-    public static enum colorValue{ONE,TWO,THREE};
-
+    @SuppressWarnings("unused")
+	public enum colour{
+		green,
+		yellow, 
+		brown 
+	}
 
     private Position position;
-    private String vegColor;
-    private colorValue cValue;
-    private Year YearOfEvent;
+    private colour vegColour;
+    private int colourValue;
+    private int YearOfEvent;
 
     public Galamsey(){
 
     }
     
-    public Galamsey(String vegColor, colorValue cValue, Position position, Year yearofYear){
-        this.vegColor = vegColor;
-        this.cValue = cValue;
+    public Galamsey(colour vegColor, int colourValue, Position position, int yearofYear){
+        this.vegColour = vegColor;
+        this.colourValue = colourValue;
         this.position = position;
         this.YearOfEvent = yearofYear;
 
@@ -24,31 +28,32 @@ public class Galamsey{
         this.position = position;
     }
 
-    public void setVegColor(String vegColor){
-        this.vegColor = vegColor;
+    public void setVegColor(colour vegColour){
+        this.vegColour = vegColour;
     }
 
-    public void setCvalue(colorValue cValue){
-        this.cValue = cValue;
+    public void setColourValue(int colourValue){
+        this.colourValue = colourValue;
     }
 
-    public void setYear(Year yearOfEvent){
+    public void setYear(int yearOfEvent){
         this.YearOfEvent = yearOfEvent;
     }
     
     public Position getPosition(){
-        return Position;
+        return position;
     }
 
-    public String getVegColor(){
-        return vegColor;
+    public colour getVegColor(){
+        return vegColour;
     }
 
-    public colorValue getCvalue(){
-        return cValue;
+    public int getColourValue(){
+        return colourValue
+        ;
     }
 
-    public Year getYearOfEevent(){
+    public int getYearOfEevent(){
         return YearOfEvent;
     }
 }

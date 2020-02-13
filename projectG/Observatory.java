@@ -1,78 +1,55 @@
-import java.util.ArrayList;
 import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Observatory{
-    
-    private String ObserveName;
-    private String CountryOrigin;
-    private Year galamseyStart;
-    private double areaCovered;
-    private String events;
-    private String Location;
+// import Galamsey.Location;
+// import Galamsey.colour;
+public class Observatory {
+    private String countryName;
+    private int areaCovered;
+    private List<Galamsey> galamseyEvents;
+    private int yearStarted;
 
-
-    public Observatory(){}
-
-    public Observatory(String ObserveName, String CountryOrigin, Year galamseyStart, Double areaCovered, String events, String Location){
-        this.ObserveName = ObserveName;
-        this.CountryOrigin =CountryOrigin;
-        this.galamseyStart = galamseyStart;
-        this.areaCovered = areaCovered;
-        this.events = events;
-        this.Location = Location;
+    public Observatory(){
+        galamseyEvents = new ArrayList<>();
     }
 
-    public String getObserveName() {
-        return ObserveName;
+    public void setCountryName(final String countryName) {
+        this.countryName = countryName;
     }
 
-    public void setObserveName(String observeName) {
-        ObserveName = observeName;
-    }
-
-    public String getCountryOrigin() {
-        return CountryOrigin;
-    }
-
-    public void setCountryOrigin(String countryOrigin) {
-        CountryOrigin = countryOrigin;
-    }
-
-    public Year getGalamseyStart() {
-        return galamseyStart;
-    }
-
-    public void setGalamseyStart(Year galamseyStart) {
-        this.galamseyStart = galamseyStart;
-    }
-
-    public double getAreaCovered() {
-        return areaCovered;
-    }
-
-    public void setAreaCovered(double areaCovered) {
+    public void setAreaCovered(final int areaCovered) {
         this.areaCovered = areaCovered;
     }
 
-    public String getEvents() {
-        return events;
+    public void createEvent(Galamsey.colour vegetationColour, int colourValue, Position position, int year){
+        Galamsey newEvent = new Galamsey(vegetationColour, colourValue, position, year);
+        galamseyEvents.add(newEvent);
     }
 
-    public void setEvents(String events) {
-        this.events = events;
+    public void viewEvents(){
+        for (Galamsey galamsey : galamseyEvents) {
+            System.out.println(galamsey.getColourValue());
+        }
     }
 
-    public String getLocation() {
-        return Location;
+    // public class GalamseyEvents {
+    //     public galamsey(colour vegetationColour, int colourValue, Location location) {
+    //         this.vegetationColour = vegetationColour;
+    //         this.colourValue = colourValue;
+    //         this.location = location;
+
+    //         if(vegetationColour == yellow || vegetationColour == brown){
+    //             galamseyEvents.add(location);
+    //         }
+    //     }
+    // }
+
+    public static void main(String[] args) {
+        Position accra = new Position(2.5, 3.6);
+
+        Observatory observe = new Observatory();
+        observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
+        observe.viewEvents();
     }
-
-    public void setLocation(String location) {
-        Location = location;
-    }
-
-    
-		
-	}
-
-    
-
+}
