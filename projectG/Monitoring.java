@@ -33,6 +33,20 @@ public class Monitoring{
 
         return max;
     }
+
+    public List<Galamsey> galamseyCompare(int value){
+
+        List<Galamsey> allGalamseys = new ArrayList<>();
+
+        for (Observatory observatory : observatories) {
+            for (Galamsey galamsey : observatory.getAllEvents(value)) {
+                allGalamseys.add(galamsey);
+            }
+        }
+
+        return allGalamseys;
+
+    }
         
         
 }

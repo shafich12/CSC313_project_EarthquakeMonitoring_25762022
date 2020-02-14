@@ -88,6 +88,14 @@ public class Observatory {
         return sum/count;
     }
 
+    // public Galamsey getAllEventssas(int value){
+
+    //     for (Galamsey galamsey : galamseyEvents) {
+    //         if(galamsey.ge)
+    //     }
+    // }
+
+
     public List<Galamsey> getAllEvents(int value){
 
         List<Galamsey> largerThan = new ArrayList<>();
@@ -127,8 +135,12 @@ public class Observatory {
         // }
 
         Monitoring monitor = new Monitoring();
-        System.out.println(monitor.largestAverage());
-        System.out.println(monitor.largestColourValue());
+        // System.out.println(monitor.largestAverage());
+        // System.out.println(monitor.largestColourValue());
+
+        for (Galamsey e : monitor.galamseyCompare(0)) {
+            System.out.println(e.getColourValue());
+        }
 
     }
 }
