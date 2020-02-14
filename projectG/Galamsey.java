@@ -22,8 +22,8 @@ public class Galamsey{
         this.colourValue = colourValue;
         this.position = position;
         this.YearOfEvent = yearofYear;
-
     }
+    
     public void setPosition(Position position){
         this.position = position;
     }

@@ -11,7 +11,12 @@ public class Observatory {
     private List<Galamsey> galamseyEvents;
     private int yearStarted;
 
-    public Observatory(){
+    public Observatory(String observatoryName, String countryName, int areaCovered, int yearStarted){
+        this.observatoryName = observatoryName;
+        this.countryName = countryName;
+        this.areaCovered = areaCovered;
+        this.yearStarted = yearStarted;
+
         galamseyEvents = new ArrayList<>();
         Monitoring.observatories.add(this);
     }
