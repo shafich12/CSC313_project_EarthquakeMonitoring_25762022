@@ -13,6 +13,7 @@ public class Observatory {
 
     public Observatory(){
         galamseyEvents = new ArrayList<>();
+        Monitoring.observatories.add(this);
     }
 
     public void setCountryName(final String countryName) {
@@ -77,8 +78,8 @@ public class Observatory {
     }
 
     public float getAverageColourValue(){
-        int sum = 0;
-        int count = 0;
+        float sum = 0;
+        float count = 0;
 
         for (Galamsey galamsey : galamseyEvents) {
             sum = sum + galamsey.getColourValue();
@@ -103,21 +104,26 @@ public class Observatory {
     public static void main(String[] args) {
         Position accra = new Position(2.5, 3.6);
 
-        Observatory observe = new Observatory();
-        observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
-        observe.createEvent(Galamsey.colour.green, 3, accra, 2005);
-        observe.createEvent(Galamsey.colour.green, 2, accra, 2005);
-        observe.createEvent(Galamsey.colour.green, 3, accra, 2005);
-        observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
+        Observatory observe1 = new Observatory();
+        Observatory observe2 = new Observatory();
+        observe1.createEvent(Galamsey.colour.green, 1, accra, 2005);
+        observe1.createEvent(Galamsey.colour.green, 1, accra, 2005);
+        
+        observe2.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe2.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe2.createEvent(Galamsey.colour.green, 1, accra, 2005);
 
         //observe.viewEvents();
         // System.out.println(observe.getHighestColourValue());
         // System.out.println(observe.getAverageColourValue());
 
-        for (Galamsey e : observe.getAllEvents(0)) {
-            System.out.println(e.getColourValue());
+        // for (Galamsey e : observe.getAllEvents(0)) {
+        //     System.out.println(e.getColourValue());
             
-        }
+        // }
+
+        Monitoring monitor = new Monitoring();
+        System.out.println(monitor.largestAverage());
 
     }
 }
