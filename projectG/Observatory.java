@@ -1,78 +1,93 @@
-import java.util.ArrayList;
 import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Observatory{
+// import Galamsey.Location;
+// import Galamsey.colour;
+public class Observatory {
+    private String observatoryName;
+    private String countryName;
+    private int areaCovered;
+    private List<Galamsey> galamseyEvents;
+    private int yearStarted;
+
+    public Observatory(){
+        galamseyEvents = new ArrayList<>();
+    }
+
     
-    private String ObserveName;
-    private String CountryOrigin;
-    private Year galamseyStart;
-    private double areaCovered;
-    private String events;
-    private String Location;
 
+    public void setCountryName(final String countryName) {
+        this.countryName = countryName;
+    }
 
-    public Observatory(){}
-
-    public Observatory(String ObserveName, String CountryOrigin, Year galamseyStart, Double areaCovered, String events, String Location){
-        this.ObserveName = ObserveName;
-        this.CountryOrigin =CountryOrigin;
-        this.galamseyStart = galamseyStart;
+    public void setAreaCovered(final int areaCovered) {
         this.areaCovered = areaCovered;
-        this.events = events;
-        this.Location = Location;
     }
 
-    public String getObserveName() {
-        return ObserveName;
+
+    // public class GalamseyEvents {
+    //     public galamsey(colour vegetationColour, int colourValue, Location location) {
+    //         this.vegetationColour = vegetationColour;
+    //         this.colourValue = colourValue;
+    //         this.location = location;
+
+    //         if(vegetationColour == yellow || vegetationColour == brown){
+    //             galamseyEvents.add(location);
+    //         }
+    //     }
+    // }
+
+
+
+    public String getObservatoryName() {
+        return observatoryName;
     }
 
-    public void setObserveName(String observeName) {
-        ObserveName = observeName;
+    public void setObservatoryName(String observatoryName) {
+        this.observatoryName = observatoryName;
     }
 
-    public String getCountryOrigin() {
-        return CountryOrigin;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCountryOrigin(String countryOrigin) {
-        CountryOrigin = countryOrigin;
-    }
-
-    public Year getGalamseyStart() {
-        return galamseyStart;
-    }
-
-    public void setGalamseyStart(Year galamseyStart) {
-        this.galamseyStart = galamseyStart;
-    }
-
-    public double getAreaCovered() {
+    public int getAreaCovered() {
         return areaCovered;
     }
 
-    public void setAreaCovered(double areaCovered) {
-        this.areaCovered = areaCovered;
+    public List<Galamsey> getGalamseyEvents() {
+        return galamseyEvents;
     }
 
-    public String getEvents() {
-        return events;
+    public void setGalamseyEvents(List<Galamsey> galamseyEvents) {
+        this.galamseyEvents = galamseyEvents;
     }
 
-    public void setEvents(String events) {
-        this.events = events;
+    public int getYearStarted() {
+        return yearStarted;
     }
 
-    public String getLocation() {
-        return Location;
+    public void setYearStarted(int yearStarted) {
+        this.yearStarted = yearStarted;
     }
 
-    public void setLocation(String location) {
-        Location = location;
+    public void createEvent(Galamsey.colour vegetationColour, int colourValue, Position position, int year){
+        Galamsey newEvent = new Galamsey(vegetationColour, colourValue, position, year);
+        galamseyEvents.add(newEvent);
     }
 
-    
-		
-	}
+    public void viewEvents(){
+        for (Galamsey galamsey : galamseyEvents) {
+            System.out.println(galamsey.getColourValue());
+        }
+    }
 
-    
+    public static void main(String[] args) {
+        Position accra = new Position(2.5, 3.6);
 
+        Observatory observe = new Observatory();
+        observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
+        observe.viewEvents();
+    }
+}
