@@ -9,7 +9,7 @@ public class Monitoring{
 
     }
 
-    public String largestAverage(){
+    public String largestAverageObservatory(){
         float max = 0;
         String name = "";
         for (Observatory observatory : observatories) {
@@ -20,6 +20,18 @@ public class Monitoring{
         }
 
         return name;
+    }
+
+    public float largestAverageValue(){
+        float max = 0;
+
+        for (Observatory observatory : observatories) {
+            if(observatory.getAverageColourValue() > max){
+                max = observatory.getAverageColourValue();
+            }
+        }
+
+        return max;
     }
 
     public int largestColourValue(){

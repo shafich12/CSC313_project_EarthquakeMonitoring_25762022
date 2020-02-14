@@ -5,7 +5,7 @@ public class Galamsey{
 	public enum colour{
 		green,
 		yellow, 
-		brown 
+		brown; 
 	}
 
     private Position position;
@@ -55,6 +55,15 @@ public class Galamsey{
 
     public int getYearOfEevent(){
         return YearOfEvent;
+    }
+
+    @Override
+    public String toString() {
+        String str = "Position: " + position.toString()
+                        + " Colour Value: " + this.getColourValue()
+                        + " Year of Event: " + this.getYearOfEevent();
+
+        return str;
     }
 }
 

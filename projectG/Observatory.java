@@ -2,8 +2,7 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
-// import Galamsey.Location;
-// import Galamsey.colour;
+
 public class Observatory {
     private String observatoryName;
     private String countryName;
@@ -93,14 +92,6 @@ public class Observatory {
         return sum/count;
     }
 
-    // public Galamsey getAllEventssas(int value){
-
-    //     for (Galamsey galamsey : galamseyEvents) {
-    //         if(galamsey.ge)
-    //     }
-    // }
-
-
     public List<Galamsey> getAllEvents(int value){
 
         List<Galamsey> largerThan = new ArrayList<>();
@@ -114,38 +105,4 @@ public class Observatory {
         return largerThan;
     }
 
-    // public static void main(String[] args) {
-    //     Position accra = new Position(2.5, 3.6);
-
-    //     Observatory observe1 = new Observatory();
-    //     Observatory observe2 = new Observatory();
-
-    //     observe1.setObservatoryName("Observe1");
-    //     observe2.setObservatoryName("Observe2");
-
-    //     observe1.createEvent(Galamsey.colour.green, 99, accra, 2005);
-    //     observe1.createEvent(Galamsey.colour.green, 1, accra, 2005);
-        
-    //     observe2.createEvent(Galamsey.colour.green, 0, accra, 2005);
-    //     observe2.createEvent(Galamsey.colour.green, 3, accra, 2005);
-    //     observe2.createEvent(Galamsey.colour.green, 1, accra, 2005);
-
-    //     //observe.viewEvents();
-    //     // System.out.println(observe.getHighestColourValue());
-    //     // System.out.println(observe.getAverageColourValue());
-
-    //     // for (Galamsey e : observe.getAllEvents(0)) {
-    //     //     System.out.println(e.getColourValue());
-            
-    //     // }
-
-    //     Monitoring monitor = new Monitoring();
-    //     // System.out.println(monitor.largestAverage());
-    //     // System.out.println(monitor.largestColourValue());
-
-    //     for (Galamsey e : monitor.galamseyCompare(0)) {
-    //         System.out.println(e.getColourValue());
-    //     }
-
-    // }
 }
