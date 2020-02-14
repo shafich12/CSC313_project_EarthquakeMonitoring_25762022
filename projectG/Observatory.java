@@ -5,6 +5,7 @@ import java.util.List;
 // import Galamsey.Location;
 // import Galamsey.colour;
 public class Observatory {
+    private String observatoryName;
     private String countryName;
     private int areaCovered;
     private List<Galamsey> galamseyEvents;
@@ -22,6 +23,38 @@ public class Observatory {
         this.areaCovered = areaCovered;
     }
 
+    public String getObservatoryName() {
+        return observatoryName;
+    }
+
+    public void setObservatoryName(String observatoryName) {
+        this.observatoryName = observatoryName;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public int getAreaCovered() {
+        return areaCovered;
+    }
+
+    public List<Galamsey> getGalamseyEvents() {
+        return galamseyEvents;
+    }
+
+    public void setGalamseyEvents(List<Galamsey> galamseyEvents) {
+        this.galamseyEvents = galamseyEvents;
+    }
+
+    public int getYearStarted() {
+        return yearStarted;
+    }
+
+    public void setYearStarted(int yearStarted) {
+        this.yearStarted = yearStarted;
+    }
+
     public void createEvent(Galamsey.colour vegetationColour, int colourValue, Position position, int year){
         Galamsey newEvent = new Galamsey(vegetationColour, colourValue, position, year);
         galamseyEvents.add(newEvent);
@@ -33,23 +66,27 @@ public class Observatory {
         }
     }
 
-    // public class GalamseyEvents {
-    //     public galamsey(colour vegetationColour, int colourValue, Location location) {
-    //         this.vegetationColour = vegetationColour;
-    //         this.colourValue = colourValue;
-    //         this.location = location;
-
-    //         if(vegetationColour == yellow || vegetationColour == brown){
-    //             galamseyEvents.add(location);
-    //         }
-    //     }
-    // }
+    public int getHighestColourValue(){
+        int max = 0;
+        for (Galamsey galamsey : galamseyEvents) {
+            if(galamsey.getColourValue() >= max){
+                max = galamsey.getColourValue();
+            }
+        }
+        return max;
+    }
 
     public static void main(String[] args) {
         Position accra = new Position(2.5, 3.6);
 
         Observatory observe = new Observatory();
         observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
-        observe.viewEvents();
+        observe.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe.createEvent(Galamsey.colour.green, 2, accra, 2005);
+        observe.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
+
+        //observe.viewEvents();
+        System.out.println(observe.getHighestColourValue());
     }
 }
