@@ -76,6 +76,17 @@ public class Observatory {
         return max;
     }
 
+    public float getAverageColourValue(){
+        int sum = 0;
+        int count = 0;
+
+        for (Galamsey galamsey : galamseyEvents) {
+            sum = sum + galamsey.getColourValue();
+            count++;
+        }
+        return sum/count;
+    }
+
     public static void main(String[] args) {
         Position accra = new Position(2.5, 3.6);
 
@@ -88,5 +99,7 @@ public class Observatory {
 
         //observe.viewEvents();
         System.out.println(observe.getHighestColourValue());
+        System.out.println(observe.getAverageColourValue());
+
     }
 }
