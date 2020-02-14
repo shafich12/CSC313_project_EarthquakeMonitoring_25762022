@@ -87,6 +87,19 @@ public class Observatory {
         return sum/count;
     }
 
+    public List<Galamsey> getAllEvents(int value){
+
+        List<Galamsey> largerThan = new ArrayList<>();
+
+        for(Galamsey galamsey: galamseyEvents){
+            if(galamsey.getColourValue() > value){
+                largerThan.add(galamsey);
+            }
+        }
+
+        return largerThan;
+    }
+
     public static void main(String[] args) {
         Position accra = new Position(2.5, 3.6);
 
@@ -98,8 +111,13 @@ public class Observatory {
         observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
 
         //observe.viewEvents();
-        System.out.println(observe.getHighestColourValue());
-        System.out.println(observe.getAverageColourValue());
+        // System.out.println(observe.getHighestColourValue());
+        // System.out.println(observe.getAverageColourValue());
+
+        for (Galamsey e : observe.getAllEvents(0)) {
+            System.out.println(e.getColourValue());
+            
+        }
 
     }
 }
