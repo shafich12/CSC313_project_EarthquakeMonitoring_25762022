@@ -15,8 +15,6 @@ public class Observatory {
         galamseyEvents = new ArrayList<>();
     }
 
-    
-
     public void setCountryName(final String countryName) {
         this.countryName = countryName;
     }
@@ -24,21 +22,6 @@ public class Observatory {
     public void setAreaCovered(final int areaCovered) {
         this.areaCovered = areaCovered;
     }
-
-
-    // public class GalamseyEvents {
-    //     public galamsey(colour vegetationColour, int colourValue, Location location) {
-    //         this.vegetationColour = vegetationColour;
-    //         this.colourValue = colourValue;
-    //         this.location = location;
-
-    //         if(vegetationColour == yellow || vegetationColour == brown){
-    //             galamseyEvents.add(location);
-    //         }
-    //     }
-    // }
-
-
 
     public String getObservatoryName() {
         return observatoryName;
@@ -83,11 +66,27 @@ public class Observatory {
         }
     }
 
+    public int getHighestColourValue(){
+        int max = 0;
+        for (Galamsey galamsey : galamseyEvents) {
+            if(galamsey.getColourValue() >= max){
+                max = galamsey.getColourValue();
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         Position accra = new Position(2.5, 3.6);
 
         Observatory observe = new Observatory();
         observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
-        observe.viewEvents();
+        observe.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe.createEvent(Galamsey.colour.green, 2, accra, 2005);
+        observe.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe.createEvent(Galamsey.colour.green, 1, accra, 2005);
+
+        //observe.viewEvents();
+        System.out.println(observe.getHighestColourValue());
     }
 }
