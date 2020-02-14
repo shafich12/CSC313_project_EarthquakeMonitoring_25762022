@@ -106,10 +106,14 @@ public class Observatory {
 
         Observatory observe1 = new Observatory();
         Observatory observe2 = new Observatory();
-        observe1.createEvent(Galamsey.colour.green, 1, accra, 2005);
+
+        observe1.setObservatoryName("Observe1");
+        observe2.setObservatoryName("Observe2");
+
+        observe1.createEvent(Galamsey.colour.green, 99, accra, 2005);
         observe1.createEvent(Galamsey.colour.green, 1, accra, 2005);
         
-        observe2.createEvent(Galamsey.colour.green, 3, accra, 2005);
+        observe2.createEvent(Galamsey.colour.green, 0, accra, 2005);
         observe2.createEvent(Galamsey.colour.green, 3, accra, 2005);
         observe2.createEvent(Galamsey.colour.green, 1, accra, 2005);
 
