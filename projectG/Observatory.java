@@ -128,6 +128,7 @@ public class Observatory {
 
         Monitoring monitor = new Monitoring();
         System.out.println(monitor.largestAverage());
+        System.out.println(monitor.largestColourValue());
 
     }
 }

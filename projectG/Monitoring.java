@@ -18,8 +18,20 @@ public class Monitoring{
                 name = observatory.getObservatoryName();
             }
         }
-        
+
         return name;
+    }
+
+    public int largestColourValue(){
+        int max = 0;
+
+        for (Observatory observatory : observatories) {
+            if(observatory.getHighestColourValue() > max){
+                max = observatory.getHighestColourValue();
+            }
+        }
+
+        return max;
     }
         
         
