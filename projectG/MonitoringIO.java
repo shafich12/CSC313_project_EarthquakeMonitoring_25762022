@@ -149,7 +149,6 @@ public class MonitoringIO{
         System.out.println("Enter year");
         int year = input.nextInt();
 
-        //Galamsey galamsey = new Galamsey(colour, colourValue, new Position(latitude, longitude), year);
         currentObservatory.createEvent(colour, colourValue, new Position(latitude, longitude), year);
         menuController();
 

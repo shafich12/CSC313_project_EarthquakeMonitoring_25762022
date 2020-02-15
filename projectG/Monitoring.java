@@ -21,10 +21,6 @@ public class Monitoring{
         float max = 0;
         String name = "";
 
-        if(observatories.size() == 0){
-            return "No observatories have been created.";
-        }
-
         for (Observatory observatory : observatories) {
             if(observatory.getAverageColourValue() > max){
                 max = observatory.getAverageColourValue();
@@ -37,7 +33,6 @@ public class Monitoring{
 
     public float largestAverageValue(){
         float max = 0;
-
 
         for (Observatory observatory : observatories) {
             if(observatory.getAverageColourValue() > max){
