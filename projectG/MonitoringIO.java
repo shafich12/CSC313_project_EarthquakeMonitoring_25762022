@@ -39,22 +39,31 @@ public class MonitoringIO{
 
     public static void statsController(){
 
-        System.out.println("1. General Statistics");
-        System.out.println("2. Colour value greater than give number");
+        System.out.println("1. View all observatories");
+        System.out.println("2. General Statistics");
+        System.out.println("3. Colour value greater than give number");
         System.out.println("0. Return");
 
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
 
         if(choice == 1){
-            generalStats(monitor);
+            showAllObservatories(monitor);
         }
         else if(choice == 2){
+            generalStats(monitor);
+        }
+        else if(choice == 3){
             largerThanValue(monitor);
         }
         else{
             menuController();
         }
+    }
+
+    public static void showAllObservatories(Monitoring monitor){
+        monitor.showAllObservatoryInfo();
+        menuController();
     }
 
     public static void generalStats(Monitoring monitor){
