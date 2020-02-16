@@ -7,11 +7,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.popupMenu;
-import java.popMenu;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JComboBox;
+
+
 public class GalamseyInfo extends JFrame {
 
-	private JPanel contentPane;
+    private JPanel contentPane;
+    private JComboBox<Observatory> comboBox;
 
 	/**
 	 * Launch the application.
@@ -40,23 +47,57 @@ public class GalamseyInfo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton chooseObsBt = new JButton("Choose an Observatory");
-		chooseObsBt.addMouseListener(new MouseAdapter() {
-			private final JPopupMenu popMenu = new JPopupMenu();
-			private JMenuItem menuitem = null;
+		JLabel ChooseObsLabel = new JLabel("Choose an Observatory");
+		ChooseObsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		ChooseObsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		ChooseObsLabel.setBounds(75, 37, 288, 56);
+		contentPane.add(ChooseObsLabel);
+		
+        comboBox = new JComboBox<Observatory>();
+        addToComboBox();
+		comboBox.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				return getObservatoryName();
+                // for (Observatory m : Monitoring.observatories) {
+                //     String names = m.getObservatoryName();
+                //     comboBox.addItem(names);
+                // }
+				//Observatory.getObservatoryName();
 			}
 		});
-		chooseObsBt.setBounds(99, 73, 246, 29);
-		contentPane.add(chooseObsBt);
+		comboBox.setBounds(100, 89, 222, 40);
+		contentPane.add(comboBox);
+		
+		JButton MainMenuBt2 = new JButton("Main Menu");
+		MainMenuBt2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				///To main menu
+			}
+		});
+		MainMenuBt2.setBounds(327, 243, 117, 29);
+		contentPane.add(MainMenuBt2);
+		
+		JButton BackBt = new JButton("Back");
+		BackBt.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				///back to...
+			}
+		});
+		BackBt.setBounds(6, 243, 117, 29);
+		contentPane.add(BackBt);
 	}
 	
 	//pop up menu method
 	
-	private void popupMenu(JFrame frame) {
-		
-	}
+//	private void popupMenu(JFrame frame) {
+//		
+//	}
 
+    public void addToComboBox(){
+        for (Observatory observatory : Monitoring.observatories) {
+            comboBox.addItem(observatory);
+        }
+    }
 }

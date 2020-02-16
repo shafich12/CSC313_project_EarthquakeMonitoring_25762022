@@ -94,11 +94,11 @@ public class ObservatoryInfo extends JFrame {
 		finishBt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String name = obsName.getName();
+				String name = obsName.getText();
 				String country = countryLoc.getText();
 				int area = Integer.parseInt(areaCov.getText());
 				int yearSt = Integer.parseInt(year.getText());
-				Observatory observatory = new Observatory(name, country, area, yearSt);
+                Observatory observatory = new Observatory(name, country, area, yearSt);
 				JOptionPane.showMessageDialog(finishBt, "Observatory Created Successfully!!");
 			}
 		});

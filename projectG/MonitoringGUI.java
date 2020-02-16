@@ -68,7 +68,9 @@ public class MonitoringGUI {
 		galamseyBt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				frame.dispose();
+				GalamseyInfo galamsey = new GalamseyInfo();
+				galamsey.setVisible(true);
 			}
 		});
 		galamseyBt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
