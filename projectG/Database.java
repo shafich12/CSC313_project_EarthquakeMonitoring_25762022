@@ -14,7 +14,7 @@ public class Database {
     public Database(){
         url = "jdbc:mysql://localhost:3306/galamsey";
         uname = "root";
-        pass = "root";
+        pass = "%loulou%";
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
