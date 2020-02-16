@@ -39,22 +39,31 @@ public class MonitoringIO{
 
     public static void statsController(){
 
-        System.out.println("1. General Statistics");
-        System.out.println("2. Colour value greater than give number");
+        System.out.println("1. View all observatories");
+        System.out.println("2. General Statistics");
+        System.out.println("3. Colour value greater than give number");
         System.out.println("0. Return");
 
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
 
         if(choice == 1){
-            generalStats(monitor);
+            showAllObservatories(monitor);
         }
         else if(choice == 2){
+            generalStats(monitor);
+        }
+        else if(choice == 3){
             largerThanValue(monitor);
         }
         else{
             menuController();
         }
+    }
+
+    public static void showAllObservatories(Monitoring monitor){
+        monitor.showAllObservatoryInfo();
+        menuController();
     }
 
     public static void generalStats(Monitoring monitor){
@@ -124,11 +133,11 @@ public class MonitoringIO{
         input.nextLine();
         System.out.println("Enter galamsey details for " + currentObservatory.getObservatoryName());
 
-        System.out.println("Enter vegetation colour");
+        System.out.println("Provide vegetation colour (Green, Yellow, Brown)");
         String vegetationColour = input.nextLine();
         Galamsey.colour colour = Galamsey.colour.valueOf(vegetationColour.toLowerCase());
 
-        System.out.println("Enter colour value");
+        System.out.println("Enter colour value (Green (1), Yellow(2), Brown(3))");
         int colourValue = input.nextInt();
 
         System.out.println("Enter latitude");
@@ -140,7 +149,6 @@ public class MonitoringIO{
         System.out.println("Enter year");
         int year = input.nextInt();
 
-        //Galamsey galamsey = new Galamsey(colour, colourValue, new Position(latitude, longitude), year);
         currentObservatory.createEvent(colour, colourValue, new Position(latitude, longitude), year);
         menuController();
 

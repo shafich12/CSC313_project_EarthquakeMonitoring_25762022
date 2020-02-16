@@ -105,4 +105,12 @@ public class Observatory {
         return largerThan;
     }
 
+    @Override
+    public String toString() {
+        return  "Observatory Name         : " + observatoryName +
+                "\nCountry Name             : " + countryName +
+                "\nArea Covered (in sq. km) : " + areaCovered +
+                "\nNumber of records        : " + galamseyEvents.size() +
+                "\nYear Records Started     : " + yearStarted;
+    }
 }
