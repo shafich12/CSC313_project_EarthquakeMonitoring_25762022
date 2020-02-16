@@ -140,7 +140,7 @@ public class MonitoringIO{
         input.nextLine();
         System.out.println("Enter galamsey details for " + currentObservatory.getObservatoryName());
 
-        System.out.println("Enter vegetation colour (Green, Yellow, Brown");
+        System.out.println("Provide vegetation colour (Green, Yellow, Brown)");
         String vegetationColour = input.nextLine();
         Galamsey.colour colour = Galamsey.colour.valueOf(vegetationColour.toLowerCase());
 
