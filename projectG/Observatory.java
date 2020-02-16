@@ -106,11 +106,15 @@ public class Observatory {
     }
 
     @Override
+    // public String toString() {
+    //     return  "Observatory Name         : " + observatoryName +
+    //             "\nCountry Name             : " + countryName +
+    //             "\nArea Covered (in sq. km) : " + areaCovered +
+    //             "\nNumber of records        : " + galamseyEvents.size() +
+    //             "\nYear Records Started     : " + yearStarted;
+    // }
+
     public String toString() {
-        return  "Observatory Name         : " + observatoryName +
-                "\nCountry Name             : " + countryName +
-                "\nArea Covered (in sq. km) : " + areaCovered +
-                "\nNumber of records        : " + galamseyEvents.size() +
-                "\nYear Records Started     : " + yearStarted;
+        return observatoryName;
     }
 }
