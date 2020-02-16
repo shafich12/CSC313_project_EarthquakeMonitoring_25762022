@@ -107,7 +107,7 @@ public class MonitoringIO{
 
         Observatory observatory = new Observatory(name, country, area, year);
         try {
-            observatory.addtoDB();
+            observatory.addToDB();
         } catch (SQLException e) {
             e.printStackTrace();
         }
