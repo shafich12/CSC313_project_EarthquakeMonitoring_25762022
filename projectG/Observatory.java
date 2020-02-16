@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +105,13 @@ public class Observatory {
 
         return largerThan;
     }
+
+    public void addtoDB() throws SQLException {
+
+        MonitoringIO.db.insertObservatory(this);
+    }
+
+
 
     @Override
     public String toString() {

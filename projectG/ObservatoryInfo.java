@@ -98,7 +98,7 @@ public class ObservatoryInfo extends JFrame {
 				String country = countryLoc.getText();
 				int area = Integer.parseInt(areaCov.getText());
 				int yearSt = Integer.parseInt(year.getText());
-				Observatory observatory = new Observatory(name, country, area, yearSt);
+				//Observatory observatory = new Observatory(name, country, area, yearSt);
 				JOptionPane.showMessageDialog(finishBt, "Observatory Created Successfully!!");
 			}
 		});
