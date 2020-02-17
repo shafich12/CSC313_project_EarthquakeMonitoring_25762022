@@ -168,6 +168,12 @@ public class MonitoringIO{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        try{
+            MonitoringIO.db.loadGalamseys();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
 }

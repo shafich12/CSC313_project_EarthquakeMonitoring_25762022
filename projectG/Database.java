@@ -52,10 +52,43 @@ public class Database {
                     data.getInt(5));
         }
 
+    }
+
+    public String insertGalamsey(Galamsey g) throws SQLException{
+
+        String query = "INSERT INTO galamseys(vegColor, colorValue, latitude, longitude, yearRecorded, observatoryName)\n" +
+                "VALUES (?, ?, ?, ?, ?, ?);";
+        pst = con.prepareStatement(query);
+
+        pst.setString(1, g.getVegColor().toString());
+        pst.setInt(2, g.getColourValue());
+        pst.setDouble(3, g.getPosition().getLatitude());
+        pst.setDouble(4, g.getPosition().getLongitude());
+        pst.setInt(5, g.getYearOfEevent());
+        pst.setString(6, g.getObservatory().getObservatoryName());
+
+        int count = pst.executeUpdate();
+        return count + " number of rows affected";
 
     }
 
+    public void loadGalamseys() throws SQLException{
+
+        String query = "SELECT * FROM galamseys";
+        st = con.createStatement();
+        data = st.executeQuery(query);
+
+        while(data.next()){
+            Galamsey g = new Galamsey(Galamsey.colour.valueOf(data.getString(2).toLowerCase()), data.getInt(3),
+                    new Position(data.getDouble(4), data.getDouble(5)), data.getInt(6));
 
 
-
+            for (Observatory o:
+                 Monitoring.observatories) {
+                if(data.getString(7).equals(o.getObservatoryName())){
+                    o.addToEvents(g);
+                }
+            }
+        }
+    }
 }

@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.time.Year;
 
 public class Galamsey{
@@ -13,6 +14,8 @@ public class Galamsey{
     private int colourValue;
     private int YearOfEvent;
 
+    private Observatory observatory;
+
     public Galamsey(){
 
     }
@@ -22,6 +25,7 @@ public class Galamsey{
         this.colourValue = colourValue;
         this.position = position;
         this.YearOfEvent = yearofYear;
+
     }
     
     public void setPosition(Position position){
@@ -39,6 +43,8 @@ public class Galamsey{
     public void setYear(int yearOfEvent){
         this.YearOfEvent = yearOfEvent;
     }
+
+    public void setObservatory(Observatory observatory){ this.observatory = observatory; }
     
     public Position getPosition(){
         return position;
@@ -48,13 +54,19 @@ public class Galamsey{
         return vegColour;
     }
 
+    public Observatory getObservatory(){return observatory;}
+
     public int getColourValue(){
-        return colourValue
-        ;
+        return colourValue;
     }
 
     public int getYearOfEevent(){
         return YearOfEvent;
+    }
+
+    public void addToDB() throws SQLException {
+        System.out.println("I might be working");
+        MonitoringIO.db.insertGalamsey(this);
     }
 
     @Override
