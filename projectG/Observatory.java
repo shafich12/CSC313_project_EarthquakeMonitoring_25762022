@@ -131,6 +131,10 @@ public class Observatory {
         this.yearStarted = yearStarted;
     }
 
+    public void addToEvents(Galamsey g){
+        galamseyEvents.add(g);
+    }
+
     /**
      * Over loaded Constructor for createEvent
      * @param vegetationColour
@@ -139,7 +143,16 @@ public class Observatory {
      * @param year
      */
     public void createEvent(Galamsey.colour vegetationColour, int colourValue, Position position, int year){
+
         Galamsey newEvent = new Galamsey(vegetationColour, colourValue, position, year);
+        newEvent.setObservatory(this);
+
+        try {
+            newEvent.addToDB();
+        }catch (SQLException e){
+
+        }
+
         galamseyEvents.add(newEvent);
     }
 
@@ -214,6 +227,10 @@ public class Observatory {
 
             MonitoringIO.db.insertObservatory(this);
     }
+
+//    public void addRecordToDB(Galamsey g) throws SQLException{
+//        //MonitoringIO.db.insertGalamsey(g);
+//    }
 
     /**
      * To String method 
