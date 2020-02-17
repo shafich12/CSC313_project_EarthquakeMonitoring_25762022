@@ -205,9 +205,15 @@ public class MonitoringIO{
         int decision = input.nextInt();
         currentObservatory = Monitoring.observatories.get(decision);
 
+        /**
+         * Displays name of Observatory you are going to type in
+         */
         input.nextLine();
         System.out.println("Enter galamsey details for " + currentObservatory.getObservatoryName());
 
+        /**
+         * Colour seection for level of vegetation in the area
+         */
         System.out.println("Provide vegetation colour (Green, Yellow, Brown)");
         String vegetationColour = input.nextLine();
         Galamsey.colour colour = Galamsey.colour.valueOf(vegetationColour.toLowerCase());
@@ -215,22 +221,39 @@ public class MonitoringIO{
         System.out.println("Enter colour value (Green (1), Yellow(2), Brown(3))");
         int colourValue = input.nextInt();
 
+        /**
+         * Takes input for latitude
+         */
         System.out.println("Enter latitude");
         double latitude = input.nextDouble();
 
+        /**
+         * Takes input for longitude
+         */
         System.out.println("Enter longitude");
         double longitude = input.nextDouble();
 
+
+        /**
+         * Takes input for year
+         */
         System.out.println("Enter year");
         int year = input.nextInt();
+
 
         currentObservatory.createEvent(colour, colourValue, new Position(latitude, longitude), year);
         menuController();
 
     }
 
+    /**
+     * method loadFromDB, which loads its data from the database
+     */
     public static void loadFromDB(){
 
+        /**
+         * Error handling for the Database
+         */
         try {
             MonitoringIO.db.initialLoad();
         } catch (SQLException e) {
