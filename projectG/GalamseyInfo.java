@@ -39,65 +39,102 @@ public class GalamseyInfo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GalamseyInfo() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel ChooseObsLabel = new JLabel("Choose an Observatory");
-		ChooseObsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		ChooseObsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		ChooseObsLabel.setBounds(75, 37, 288, 56);
-		contentPane.add(ChooseObsLabel);
-		
-        comboBox = new JComboBox<Observatory>();
-        addToComboBox();
-		comboBox.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-                // for (Observatory m : Monitoring.observatories) {
-                //     String names = m.getObservatoryName();
-                //     comboBox.addItem(names);
-                // }
-				//Observatory.getObservatoryName();
-			}
-		});
-		comboBox.setBounds(100, 89, 222, 40);
-		contentPane.add(comboBox);
-		
-		JButton MainMenuBt2 = new JButton("Main Menu");
-		MainMenuBt2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				///To main menu
-			}
-		});
-		MainMenuBt2.setBounds(327, 243, 117, 29);
-		contentPane.add(MainMenuBt2);
-		
-		JButton BackBt = new JButton("Back");
-		BackBt.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				///back to...
-			}
-		});
-		BackBt.setBounds(6, 243, 117, 29);
-		contentPane.add(BackBt);
-	}
-	
-	//pop up menu method
-	
-//	private void popupMenu(JFrame frame) {
-//		
-//	}
 
-    public void addToComboBox(){
-        for (Observatory observatory : Monitoring.observatories) {
-            comboBox.addItem(observatory);
+    // public void initialize(){
+    // galamseyFrame = new JFrame();
+
+        public GalamseyInfo() {
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setBounds(100, 100, 450, 300);
+            contentPane = new JPanel();
+            contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+            setContentPane(contentPane);
+            contentPane.setLayout(null);
+            
+            JLabel ChooseObsLabel = new JLabel("Choose an Observatory");
+            ChooseObsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+            ChooseObsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            ChooseObsLabel.setBounds(75, 37, 288, 56);
+            contentPane.add(ChooseObsLabel);
+            
+            comboBox = new JComboBox<Observatory>();
+            addToComboBox();
+            comboBox.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    Object selectedItem = comboBox.getSelectedItem();
+
+
+                    // for (Observatory m : Monitoring.observatories) {
+                    //     String names = m.getObservatoryName();
+                    //     comboBox.addItem(names);
+                    // }
+                    //Observatory.getObservatoryName();
+                }
+            });
+            comboBox.setBounds(100, 89, 222, 40);
+            contentPane.add(comboBox);
+            
+            // JButton MainMenuBt2 = new JButton("Main Menu");
+            // MainMenuBt2.addMouseListener(new MouseAdapter() {
+            // 	@Override
+            // 	public void mouseClicked(MouseEvent e) {
+            // 		///To main menu
+            // 	}
+            // });
+            // MainMenuBt2.setBounds(327, 243, 117, 29);
+            // contentPane.add(MainMenuBt2);
+            
+            JButton BackBt = new JButton("Back");
+            BackBt.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    MonitoringGUI monitoringGui = new MonitoringGUI();
+                    monitoringGui.frame.setVisible(true);
+                }
+            });
+            BackBt.setBounds(6, 243, 117, 29);
+            contentPane.add(BackBt);
+        
+        
+        JLabel CreateObsLb = new JLabel("Click The Button Below If There Are No Existing Observatories");
+            CreateObsLb.setHorizontalAlignment(SwingConstants.CENTER);
+            CreateObsLb.setBounds(21, 154, 393, 56);
+            contentPane.add(CreateObsLb);
+            
+            JButton NewObsBt = new JButton("Create New");
+            NewObsBt.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    dispose();
+                    ObservatoryInfo observatory = new ObservatoryInfo();
+                    observatory.setVisible(true);
+                }
+            });
+            NewObsBt.setBounds(153, 200, 117, 29);
+            contentPane.add(NewObsBt);
+
+            JButton nextBt = new JButton("Next");
+            nextBt.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    dispose();
+
+                }
+            });
+            nextBt.setBounds(153, 120, 117, 29);
+            contentPane.add(nextBt);
         }
-    }
+        
+        //pop up menu method
+        
+    //	private void popupMenu(JFrame frame) {
+    //		
+    //	}
+
+        public void addToComboBox(){
+            for (Observatory observatory : Monitoring.observatories) {
+                comboBox.addItem(observatory);
+            }
+        }
 }
