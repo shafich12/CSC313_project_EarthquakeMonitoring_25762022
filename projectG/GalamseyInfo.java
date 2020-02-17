@@ -118,8 +118,11 @@ public class GalamseyInfo extends JFrame {
             nextBt.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    dispose();
-
+                    if (comboBox.getSelectedItem() != null){
+                        dispose();
+                        GalamseyAftObservatory galamseyAftObservatory = new GalamseyAftObservatory();
+                        galamseyAftObservatory.setVisible(true);
+                    }
                 }
             });
             nextBt.setBounds(153, 120, 117, 29);
