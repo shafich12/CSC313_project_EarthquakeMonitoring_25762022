@@ -101,4 +101,13 @@ public class Database {
         return data;
     }
 
+    public ResultSet showRecordsGreaterThanValue(int value) throws SQLException{
+
+        String query = "SELECT * FROM galamseys WHERE colorValue = ?";
+        pst = con.prepareStatement(query);
+
+        pst.setInt(1,value);
+        return pst.executeQuery();
+    }
+
 }

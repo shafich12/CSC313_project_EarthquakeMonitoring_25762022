@@ -71,6 +71,9 @@ public class MonitoringIO{
         }
     }
 
+    /**
+     * Method containing menu
+     */
     public static void statsController(){
 
         System.out.println("1. View all observatories");
@@ -155,7 +158,7 @@ public class MonitoringIO{
 
         Observatory observatory = new Observatory(name, country, area, year);
         /**
-         * Try catch methods to handle errors
+         * Try catch methods to handle SQL error
          */
         try {
             observatory.addToDB();
@@ -170,17 +173,30 @@ public class MonitoringIO{
     }
 
 
+    /**
+     * Method enterGalamseyData() for taking input in galamsey data
+     */
     public static void enterGalamseyData(){
 
+        /**
+         * Scanner method for input
+         */
         Scanner input = new Scanner(System.in);
         int i = 0;
 
+        /**
+         * if statement to check if observatory is empty
+         */
         if(Monitoring.observatories.size() == 0){
             System.out.println("No observatories. Please add an observatory before recording galamsey data");
             menuController();
         }
 
+
         System.out.println("Choose an observatory");
+        /**
+         * for each Statement
+         */
         for (Observatory e : Monitoring.observatories) {
             System.out.println(i + ". " + e.getObservatoryName());
             i++;
