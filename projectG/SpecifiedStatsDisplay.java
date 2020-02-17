@@ -7,13 +7,17 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
+
+import net.proteanit.sql.DbUtils;
 
 public class SpecifiedStatsDisplay {
 
 	public JFrame frame;
 	private JTable table;
+	private int comparingValue;
 
 	/**
 	 * Launch the application.
@@ -81,5 +85,18 @@ public class SpecifiedStatsDisplay {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		frame.getContentPane().add(btnNewButton_1);
+		try{
+			populateTable();
+		}catch(SQLException p){
+
+		}
+	}
+
+	public void setComparingValue(int comparingValue){
+		this.comparingValue = comparingValue;
+	}
+
+	private void populateTable() throws SQLException {
+		table.setModel(DbUtils.resultSetToTableModel(MonitoringIO.db.showRecordsGreaterThanValue(comparingValue)));
 	}
 }

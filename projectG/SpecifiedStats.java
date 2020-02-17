@@ -56,6 +56,7 @@ public class SpecifiedStats {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SpecifiedStatsDisplay specifiedStatsDisplay = new SpecifiedStatsDisplay();
+				specifiedStatsDisplay.setComparingValue(Integer.parseInt(txtEnterTheObservatory.getText()));
 				specifiedStatsDisplay.frame.setVisible(true);
 				frame.setVisible(false);
 			}
