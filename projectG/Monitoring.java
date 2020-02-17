@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Monitoring{
     public void showAllObservatoryInfo(){
         for (Observatory observatory:
              observatories) {
-            System.out.println(observatory);
+            System.out.println(observatory.viewDetails());
             System.out.println("\n");
         }
     }
@@ -68,6 +69,7 @@ public class Monitoring{
         return allGalamseys;
 
     }
+
         
         
 }

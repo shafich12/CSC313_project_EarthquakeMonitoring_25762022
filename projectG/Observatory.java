@@ -10,6 +10,7 @@
 /**
  * Required packege imports
  */
+import java.sql.SQLException;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -201,18 +202,23 @@ public class Observatory {
         return largerThan;
     }
 
+     public String viewDetails() {
+         return  "Observatory Name         : " + observatoryName +
+                 "\nCountry Name             : " + countryName +
+                 "\nArea Covered (in sq. km) : " + areaCovered +
+                 "\nNumber of records        : " + galamseyEvents.size() +
+                 "\nYear Records Started     : " + yearStarted;
+     }
+
+    public void addToDB() throws SQLException {
+
+            MonitoringIO.db.insertObservatory(this);
+    }
+
     /**
      * To String method 
      */
     @Override
-    // public String toString() {
-    //     return  "Observatory Name         : " + observatoryName +
-    //             "\nCountry Name             : " + countryName +
-    //             "\nArea Covered (in sq. km) : " + areaCovered +
-    //             "\nNumber of records        : " + galamseyEvents.size() +
-    //             "\nYear Records Started     : " + yearStarted;
-    // }
-
     public String toString() {
         return observatoryName;
     }

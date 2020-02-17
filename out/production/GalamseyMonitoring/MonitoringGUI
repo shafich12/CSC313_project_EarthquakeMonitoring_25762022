@@ -1,0 +1,81 @@
+public class MonitoringGUI{
+    import java.awt.EventQueue;
+
+    import javax.swing.JFrame;
+    import javax.swing.JButton;
+    import java.awt.BorderLayout;
+    import javax.swing.JTextField;
+    import javax.swing.SwingConstants;
+    import java.awt.Font;
+    import java.awt.event.MouseAdapter;
+    import java.awt.event.MouseEvent;
+
+
+    public class MonitoringGUI {
+
+        private JFrame frame;
+        private JTextField labelBt;
+
+        /**
+        * Launch the application.
+        */
+        public static void main(String[] args) {
+            EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    try {
+                        MonitoringGUI window = new MonitoringGUI();
+                        window.frame.setVisible(true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
+        /**
+        * Create the application.
+        */
+        public MonitoringGUI() {
+            initialize();
+        }
+
+        /**
+        * Initialize the contents of the frame.
+        */
+        private void initialize() {
+            frame = new JFrame();
+            frame.setBounds(100, 100, 690, 343);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            
+            JButton observatoryDataBt = new JButton("Enter Observatory Data");
+            observatoryDataBt.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    enterObservatoryData();
+                }
+            });
+            observatoryDataBt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+            frame.getContentPane().add(observatoryDataBt, BorderLayout.WEST);
+            
+            JButton galamseyBt = new JButton("Enter Galamsey Data");
+            galamseyBt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+            frame.getContentPane().add(galamseyBt, BorderLayout.CENTER);
+            
+            JButton showStatsBt = new JButton("Show Statistics");
+            showStatsBt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+            frame.getContentPane().add(showStatsBt, BorderLayout.EAST);
+            
+            labelBt = new JTextField();
+            labelBt.setFont(new Font("Charter", Font.PLAIN, 17));
+            labelBt.setHorizontalAlignment(SwingConstants.CENTER);
+            labelBt.setText("PENTAGON GALAMSEY MONITOR");
+            frame.getContentPane().add(labelBt, BorderLayout.NORTH);
+            labelBt.setColumns(10);
+            
+            JButton exitBt = new JButton("Exit");
+            exitBt.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
+            frame.getContentPane().add(exitBt, BorderLayout.SOUTH);
+        }
+
+    }
+}
