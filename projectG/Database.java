@@ -91,4 +91,14 @@ public class Database {
             }
         }
     }
+
+    public ResultSet showObservatories() throws SQLException{
+
+        String query = "SELECT * FROM observatories";
+        st = con.createStatement();
+        data = st.executeQuery(query);
+
+        return data;
+    }
+
 }

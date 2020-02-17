@@ -1,17 +1,18 @@
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
+import net.proteanit.sql.DbUtils;
 
 public class ShowAllStats {
 
 	public JFrame frame;
 	private JTable allObsTable;
+	String[] columnNames = {"id", "Observatory Name", "Country", "Area Covered (sq. km)", "Year Established"};
 
 	/**
 	 * Launch the application.
@@ -60,10 +61,22 @@ public class ShowAllStats {
 		});
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(allObsLabel);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 38, 434, 189);
+		frame.getContentPane().add(scrollPane);
 		
 		allObsTable = new JTable();
-		allObsTable.setBounds(0, 38, 434, 189);
-		frame.getContentPane().add(allObsTable);
+		scrollPane.setViewportView(allObsTable);
 		frame.getContentPane().add(backBtn);
+		try{
+			populateTable();
+		}catch (SQLException p){
+
+		}
+	}
+
+	public void populateTable() throws SQLException {
+		allObsTable.setModel(DbUtils.resultSetToTableModel(MonitoringIO.db.showObservatories()));
 	}
 }
