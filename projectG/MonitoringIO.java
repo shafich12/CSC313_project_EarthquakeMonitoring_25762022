@@ -1,6 +1,25 @@
+/**
+ * @author Kofi Boampong Benefo- Bandoh
+ * @author Jeffrey Kafui Adorkor 
+ * @author Yesu K. Apraku 
+ * @author Shafic Hijazi 
+ * Intermidiate Computer Programing 
+ * MonitoringIO  class
+ */
+
+ /**
+  * Required Package Imports
+  */
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
+
+/**
+ *MonitoringIO class 
+ Instance Variables : currentObservatory(type Observatory)
+                      monitor(type Monitoring)
+                      db(Database)
+ */
 
 public class MonitoringIO{
 
@@ -8,13 +27,23 @@ public class MonitoringIO{
     public static Monitoring monitor = new Monitoring();
     public static Database db = new Database();
 
+
+    /**
+     * Main method with loadFromDB() and menuController() methods 
+     * @param args
+     */
     public static void main(String[] args) {
         loadFromDB();
         menuController();
     }
-
+    /**
+     * Method for implementing the menu options and displaying them 
+     */
     public static void menuController() {
 
+        /**
+         * Scanner to take iput from the user
+         */
         Scanner input = new Scanner(System.in);
 
         System.out.println("1. Enter observatory data");
@@ -25,6 +54,9 @@ public class MonitoringIO{
         //String str = input.nextLine();
         int choice = input.nextInt();
 
+        /**
+         * Branch statements for the menu 
+         */
         if(choice == 1){
             enterObservatoryData();
         }
@@ -46,6 +78,9 @@ public class MonitoringIO{
         System.out.println("3. Colour value greater than give number");
         System.out.println("0. Return");
 
+        /**
+         * Input mehtod with necessary if-else branches
+         */
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
 
@@ -63,11 +98,17 @@ public class MonitoringIO{
         }
     }
 
+    /**
+     * Method to display all observatories entered 
+     */
     public static void showAllObservatories(Monitoring monitor){
         monitor.showAllObservatoryInfo();
         menuController();
     }
 
+    /**
+     * Method for General statistics on all obseravatories 
+     */
     public static void generalStats(Monitoring monitor){
         System.out.println("Largest average colour value: " + monitor.largestAverageValue()
                         + " Recorded from: " + monitor.largestAverageObservatory());
@@ -76,6 +117,10 @@ public class MonitoringIO{
         menuController();
     }
 
+    /**
+     * Method to print out  the largest value for colour code evere recorded 
+     * @param monitor
+     */
     public static void largerThanValue(Monitoring monitor){
         Scanner input = new Scanner(System.in);
 
@@ -90,6 +135,9 @@ public class MonitoringIO{
         menuController();
     }
 
+   /**
+    *  method enterObservatoryData, to key in data into the various fields
+    */
     public static void enterObservatoryData() {
         Scanner input = new Scanner(System.in);
 
@@ -106,6 +154,9 @@ public class MonitoringIO{
         int year = input.nextInt();
 
         Observatory observatory = new Observatory(name, country, area, year);
+        /**
+         * Try catch methods to handle errors
+         */
         try {
             observatory.addToDB();
         } catch (SQLException e) {
@@ -117,6 +168,7 @@ public class MonitoringIO{
 
         menuController();
     }
+
 
     public static void enterGalamseyData(){
 
