@@ -62,7 +62,7 @@ public class Observatory {
 /**
  * Mutator method for AreaCovered
  * @param areaCovered
- */r
+ */
     public void setAreaCovered(final int areaCovered) {
         this.areaCovered = areaCovered;
     }
