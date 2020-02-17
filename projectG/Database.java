@@ -50,8 +50,8 @@ public class Database {
         while(data.next()){
             Observatory o = new Observatory(data.getString(2), data.getString(3), data.getInt(4),
                     data.getInt(5));
-            Monitoring.observatories.add(o);
         }
+
 
     }
 
