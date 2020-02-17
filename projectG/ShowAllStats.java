@@ -1,14 +1,16 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.Box;
+import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SpecifiedStatsDisplay {
+public class ShowAllStats {
 
 	public JFrame frame;
 
@@ -19,7 +21,7 @@ public class SpecifiedStatsDisplay {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SpecifiedStatsDisplay window = new SpecifiedStatsDisplay();
+					ShowAllStats window = new ShowAllStats();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +33,7 @@ public class SpecifiedStatsDisplay {
 	/**
 	 * Create the application.
 	 */
-	public SpecifiedStatsDisplay() {
+	public ShowAllStats() {
 		initialize();
 	}
 
@@ -45,38 +47,23 @@ public class SpecifiedStatsDisplay {
 		frame.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(310, 128, 2, 2);
+		scrollPane.setBounds(434, 201, -426, -152);
 		frame.getContentPane().add(scrollPane);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(10, 25, 402, 200);
-		frame.getContentPane().add(scrollPane_1);
-		
-		JLabel lblNewLabel = new JLabel("Your search results ");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(136, 0, 188, 25);
+		JLabel lblNewLabel = new JLabel("Statistics for All Observatories");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		lblNewLabel.setBounds(73, 11, 293, 23);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Back ");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SpecifiedStats specifiedStats = new SpecifiedStats();
-				specifiedStats.frame.setVisible(true);
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton.setBounds(0, 236, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Close");
-		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StatisticsGUI statisticsGUI = new StatisticsGUI();
 				statisticsGUI.frame.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(335, 236, 89, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		btnNewButton.setBounds(335, 227, 89, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
