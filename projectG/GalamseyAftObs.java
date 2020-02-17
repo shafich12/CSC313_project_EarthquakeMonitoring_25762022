@@ -124,7 +124,7 @@ public class GalamseyAftObs extends JFrame {
 				ColourValue, new Position (LatitudeTxt, LongitudeTxt), yearStd);	
 				JOptionPane.showMessageDialog(finishBt2, "Galamsey Record Created Successfully!!");
 
-			});
+			}
 		});
 		finishBt2.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		finishBt2.setBounds(167, 230, 117, 29);

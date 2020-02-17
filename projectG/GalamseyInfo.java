@@ -122,6 +122,7 @@ public class GalamseyInfo extends JFrame {
                         dispose();
                         GalamseyAftObservatory galamseyAftObservatory = new GalamseyAftObservatory();
                         galamseyAftObservatory.setVisible(true);
+                        MonitoringIO.currentObservatory = (Observatory) comboBox.getSelectedItem();
                     }
                 }
             });
