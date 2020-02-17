@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 public class ObservatoryInfo extends JFrame {
 
@@ -99,6 +100,11 @@ public class ObservatoryInfo extends JFrame {
 				int area = Integer.parseInt(areaCov.getText());
 				int yearSt = Integer.parseInt(year.getText());
                 Observatory observatory = new Observatory(name, country, area, yearSt);
+                try{
+                	observatory.addToDB();
+				}catch (SQLException p){
+                	p.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(finishBt, "Observatory Created Successfully!!");
 			}
 		});

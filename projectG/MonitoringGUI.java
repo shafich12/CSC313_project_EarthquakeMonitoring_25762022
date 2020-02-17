@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 
 public class MonitoringGUI {
@@ -21,6 +22,12 @@ public class MonitoringGUI {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		try {
+			MonitoringIO.db.initialLoad();
+			MonitoringIO.db.loadGalamseys();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -32,7 +32,7 @@ public class GalamseyAftObs extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GalamseyAftObservatory frame = new GalamseyAftObservatory();
+					GalamseyAftObs frame = new GalamseyAftObs();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,6 +44,7 @@ public class GalamseyAftObs extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	//public JFrame frame;
 	public GalamseyAftObs() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -88,7 +89,6 @@ public class GalamseyAftObs extends JFrame {
 		LatTxt.setBounds(77, 147, 120, 26);
 		contentPane.add(LatTxt);
 		LatTxt.setColumns(10);
-		Double LatitudeTxt = Double.parseDouble(LatTxt.getText());
 
 		
 		JLabel longLb = new JLabel("Longitude");
@@ -146,17 +146,16 @@ public class GalamseyAftObs extends JFrame {
 		backBt.setBounds(6, 231, 58, 29);
 		contentPane.add(backBt);
 
-				
-		JButton ExitBt = new JButton("Exit");
-		ExitBt.addMouseListener(new MouseAdapter() {
+		
+		JButton exitBt2 = new JButton("Exit");
+		exitBt2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				 System.exit(0);
+				System.exit(0);
 			}
 		});
-		ExitBt.setBounds(376, 231, 68, 29);
-		contentPane.add(ExitBt);
-
+		exitBt2.setBounds(354, 231, 91, 29);
+		contentPane.add(exitBt2);
 	}
 }
 	

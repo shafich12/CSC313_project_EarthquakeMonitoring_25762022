@@ -6,10 +6,12 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SpecifiedStats {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txtEnterTheObservatory;
 
 	/**
@@ -51,6 +53,14 @@ public class SpecifiedStats {
 		txtEnterTheObservatory.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Search ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpecifiedStatsDisplay specifiedStatsDisplay = new SpecifiedStatsDisplay();
+				specifiedStatsDisplay.setComparingValue(Integer.parseInt(txtEnterTheObservatory.getText()));
+				specifiedStatsDisplay.frame.setVisible(true);
+				frame.setVisible(false);
+			}
+		});
 		btnNewButton.setBounds(162, 100, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
@@ -58,6 +68,17 @@ public class SpecifiedStats {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lblNewLabel.setBounds(39, 11, 356, 32);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JButton btnNewButton_1 = new JButton("Back ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StatisticsGUI statisticsGUI = new StatisticsGUI();
+				statisticsGUI.frame.setVisible(true);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_1.setBounds(335, 227, 89, 23);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 
 }
