@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -5,9 +6,10 @@ public class MonitoringIO{
 
     public static Observatory currentObservatory;
     public static Monitoring monitor = new Monitoring();
+    public static Database db = new Database();
 
     public static void main(String[] args) {
-
+        loadFromDB();
         menuController();
     }
 
@@ -91,7 +93,6 @@ public class MonitoringIO{
     public static void enterObservatoryData() {
         Scanner input = new Scanner(System.in);
 
-
         System.out.println("Enter Observatory name");
         String name = input.nextLine();
 
@@ -105,6 +106,13 @@ public class MonitoringIO{
         int year = input.nextInt();
 
         Observatory observatory = new Observatory(name, country, area, year);
+        try {
+            observatory.addToDB();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         System.out.println("Observatory created successfully");
 
         menuController();
@@ -113,22 +121,21 @@ public class MonitoringIO{
     public static void enterGalamseyData(){
 
         Scanner input = new Scanner(System.in);
-        List<Observatory> observatories = Monitoring.observatories;
         int i = 0;
 
-        if(observatories.size() == 0){
+        if(Monitoring.observatories.size() == 0){
             System.out.println("No observatories. Please add an observatory before recording galamsey data");
             menuController();
         }
 
         System.out.println("Choose an observatory");
-        for (Observatory e : observatories) {
+        for (Observatory e : Monitoring.observatories) {
             System.out.println(i + ". " + e.getObservatoryName());
             i++;
         }
             
         int decision = input.nextInt();
-        currentObservatory = observatories.get(decision);
+        currentObservatory = Monitoring.observatories.get(decision);
 
         input.nextLine();
         System.out.println("Enter galamsey details for " + currentObservatory.getObservatoryName());
@@ -154,5 +161,13 @@ public class MonitoringIO{
 
     }
 
+    public static void loadFromDB(){
+
+        try {
+            MonitoringIO.db.initialLoad();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
