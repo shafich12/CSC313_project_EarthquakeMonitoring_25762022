@@ -12,9 +12,9 @@ public class Database {
     ResultSet data;
 
     public Database(){
-        url = "jdbc:mysql://localhost:3306/galamsey";
-        uname = "root";
-        pass = "%loulou%";
+        url = "jdbc:mysql://remotemysql.com:3306/LtR8HkXbTo";
+        uname = "LtR8HkXbTo";
+        pass = "0TuZ7o8Uyx";
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -91,4 +91,31 @@ public class Database {
             }
         }
     }
+
+    public ResultSet showObservatories() throws SQLException{
+
+        String query = "SELECT * FROM observatories";
+        st = con.createStatement();
+        data = st.executeQuery(query);
+
+        return data;
+    }
+
+    public ResultSet showRecordsGreaterThanValue(int value) throws SQLException{
+
+        String query = "SELECT * FROM galamseys WHERE colorValue > " + value;
+        st = con.createStatement();
+        data = st.executeQuery(query);
+
+        return data;
+    }
+
+    public ResultSet showAllRecords() throws SQLException{
+
+        String query = "SELECT * FROM galamseys";
+        pst = con.prepareStatement(query);
+
+        return pst.executeQuery();
+    }
+
 }

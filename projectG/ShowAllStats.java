@@ -1,18 +1,18 @@
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.Box;
-import javax.swing.JScrollPane;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
+import net.proteanit.sql.DbUtils;
 
 public class ShowAllStats {
 
 	public JFrame frame;
+	private JTable allObsTable;
+	String[] columnNames = {"id", "Observatory Name", "Country", "Area Covered (sq. km)", "Year Established"};
 
 	/**
 	 * Launch the application.
@@ -44,26 +44,39 @@ public class ShowAllStats {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(434, 201, -426, -152);
-		frame.getContentPane().add(scrollPane);
+		JLabel allObsLabel = new JLabel("Statistics for All Observatories");
+		allObsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		allObsLabel.setBounds(0, 0, 434, 38);
+		allObsLabel.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		
-		JLabel lblNewLabel = new JLabel("Statistics for All Observatories");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		lblNewLabel.setBounds(73, 11, 293, 23);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JButton btnNewButton = new JButton("Back ");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton backBtn = new JButton("Back ");
+		backBtn.setBounds(346, 238, 78, 23);
+		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StatisticsGUI statisticsGUI = new StatisticsGUI();
 				statisticsGUI.frame.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(335, 227, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(allObsLabel);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 38, 434, 189);
+		frame.getContentPane().add(scrollPane);
+		
+		allObsTable = new JTable();
+		scrollPane.setViewportView(allObsTable);
+		frame.getContentPane().add(backBtn);
+		try{
+			populateTable();
+		}catch (SQLException p){
+
+		}
+	}
+
+	public void populateTable() throws SQLException {
+		allObsTable.setModel(DbUtils.resultSetToTableModel(MonitoringIO.db.showObservatories()));
 	}
 }
