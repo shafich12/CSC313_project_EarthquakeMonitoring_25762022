@@ -163,7 +163,11 @@ public class MonitoringIO{
 
         Observatory observatory = new Observatory(name, country, area, year);
         /**
+<<<<<<< HEAD
+         * Try catch methods to handle errors
+=======
          * Try catch methods to handle SQL error
+>>>>>>> 257a3d55234749d35d904d0cc26505fef4bf8cdf
          */
         try {
             observatory.addToDB();
