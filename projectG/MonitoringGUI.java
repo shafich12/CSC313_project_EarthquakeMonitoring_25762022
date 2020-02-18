@@ -106,6 +106,18 @@ public class MonitoringGUI {
 		JLabel labelBt = new JLabel("PENTAGON GALAMSEY MONITOR");
 		labelBt.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(labelBt, BorderLayout.NORTH);
+
+		JButton btnNewButton_3 = new JButton("Main Menu ");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MonitoringGUI monitoringGUI = new MonitoringGUI();
+				monitoringGUI.frame.setVisible(true);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_3.setBounds(335, 227, 89, 23);
+		frame.getContentPane().add(btnNewButton_3);
+	}
 	}
 
-}
+

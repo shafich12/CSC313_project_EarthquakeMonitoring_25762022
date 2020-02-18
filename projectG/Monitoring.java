@@ -1,7 +1,23 @@
+/**
+ * @author Kofi Boampong Benefo-Bandoh
+ * @author Jeffrey Kafui Adorkor
+ * @author Yesu K. Apraku
+ * @author Shafic Hijazi
+ * Intermediate Computer Programming
+ * Monitoring class
+ */
+
+/**
+ * Required packages to be imported
+ */
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Monitoring Class
+ * Instance variables:
+ */
 public class Monitoring{
 
     public static List<Observatory> observatories = new ArrayList<>();

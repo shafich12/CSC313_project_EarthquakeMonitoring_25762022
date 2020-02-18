@@ -5,7 +5,7 @@
 import java.sql.*;
 
 /**
- * T
+ *
  */
 public class Database {
 
