@@ -252,7 +252,7 @@ public class MonitoringIO{
     public static void loadFromDB(){
 
         /**
-         * Error handling for the Database
+         * Error handling for the Database6
          */
         try {
             MonitoringIO.db.initialLoad();
