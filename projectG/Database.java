@@ -110,10 +110,18 @@ public class Database {
 
     public ResultSet showRecordsGreaterThanValue(int value) throws SQLException{
 
-        String query = "SELECT * FROM galamseys WHERE colorValue = ?";
+        String query = "SELECT * FROM galamseys WHERE colorValue > " + value;
+        st = con.createStatement();
+        data = st.executeQuery(query);
+
+        return data;
+    }
+
+    public ResultSet showAllRecords() throws SQLException{
+
+        String query = "SELECT * FROM galamseys";
         pst = con.prepareStatement(query);
 
-        pst.setInt(1,value);
         return pst.executeQuery();
     }
 

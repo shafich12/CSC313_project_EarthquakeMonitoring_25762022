@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * Monitoring Class
- * Instance variables:
+ * Instance variable: observatoriew
  */
 public class Monitoring{
 

@@ -1,17 +1,16 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JScrollPane;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+import net.proteanit.sql.DbUtils;
 
 public class GeneralStats {
 
 	public JFrame frame;
+	private JTable generalStatsTable;
 
 	/**
 	 * Launch the application.
@@ -48,6 +47,10 @@ public class GeneralStats {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 25, 414, 197);
 		frame.getContentPane().add(scrollPane);
+
+		generalStatsTable = new JTable();
+		scrollPane.setViewportView(generalStatsTable);
+		populateTable();
 		
 		JLabel lblNewLabel = new JLabel("General Statistics");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -64,5 +67,15 @@ public class GeneralStats {
 		});
 		btnNewButton.setBounds(335, 233, 89, 23);
 		frame.getContentPane().add(btnNewButton);
+	}
+
+	public void populateTable(){
+
+		try {
+			generalStatsTable.setModel(DbUtils.resultSetToTableModel(MonitoringIO.db.showAllRecords()));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
