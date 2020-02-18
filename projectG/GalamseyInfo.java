@@ -119,10 +119,10 @@ public class GalamseyInfo extends JFrame {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (comboBox.getSelectedItem() != null){
+                        GalamseyAftObs galamseyAftObs = new GalamseyAftObs();
+                        galamseyAftObs.setObservatory((Observatory) comboBox.getSelectedItem());
+                        galamseyAftObs.setVisible(true);
                         dispose();
-                        GalamseyAftObservatory galamseyAftObservatory = new GalamseyAftObservatory();
-                        galamseyAftObservatory.setVisible(true);
-                        MonitoringIO.currentObservatory = (Observatory) comboBox.getSelectedItem();
                     }
                 }
             });
