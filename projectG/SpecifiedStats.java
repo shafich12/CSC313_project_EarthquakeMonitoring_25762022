@@ -55,8 +55,8 @@ public class SpecifiedStats {
 		JButton btnNewButton = new JButton("Search ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SpecifiedStatsDisplay.comparingValue = Integer.parseInt(txtEnterTheObservatory.getText());
 				SpecifiedStatsDisplay specifiedStatsDisplay = new SpecifiedStatsDisplay();
-				specifiedStatsDisplay.setComparingValue(Integer.parseInt(txtEnterTheObservatory.getText()));
 				specifiedStatsDisplay.frame.setVisible(true);
 				frame.setVisible(false);
 			}

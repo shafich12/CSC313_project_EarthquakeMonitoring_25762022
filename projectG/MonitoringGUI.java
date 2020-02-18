@@ -87,7 +87,9 @@ public class MonitoringGUI {
 		showStatsBt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MonitoringIO.statsController();
+				StatisticsGUI statisticsGUI = new StatisticsGUI();
+				statisticsGUI.frame.setVisible(true);
+				frame.dispose();
 			}
 		});
 		showStatsBt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));

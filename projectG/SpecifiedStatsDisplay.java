@@ -17,7 +17,7 @@ public class SpecifiedStatsDisplay {
 
 	public JFrame frame;
 	private JTable table;
-	private int comparingValue;
+	public static int comparingValue;
 
 	/**
 	 * Launch the application.
@@ -57,7 +57,7 @@ public class SpecifiedStatsDisplay {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		frame.getContentPane().add(lblNewLabel);
 
-		JButton btnNewButton = new JButton("Back ");
+		JButton btnNewButton = new JButton("Back");
 		btnNewButton.setBounds(11, 233, 121, 28);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,9 +92,9 @@ public class SpecifiedStatsDisplay {
 		}
 	}
 
-	public void setComparingValue(int comparingValue){
-		this.comparingValue = comparingValue;
-	}
+//	public void setComparingValue(int comparingValue){
+//		this.comparingValue = comparingValue;
+//	}
 
 	private void populateTable() throws SQLException {
 		table.setModel(DbUtils.resultSetToTableModel(MonitoringIO.db.showRecordsGreaterThanValue(comparingValue)));
