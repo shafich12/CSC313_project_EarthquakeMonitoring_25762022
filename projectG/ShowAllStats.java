@@ -12,7 +12,6 @@ public class ShowAllStats {
 
 	public JFrame frame;
 	private JTable allObsTable;
-	String[] columnNames = {"id", "Observatory Name", "Country", "Area Covered (sq. km)", "Year Established"};
 
 	/**
 	 * Launch the application.
@@ -72,7 +71,7 @@ public class ShowAllStats {
 		try{
 			populateTable();
 		}catch (SQLException p){
-
+			p.printStackTrace();
 		}
 	}
 

@@ -11,6 +11,7 @@
   * Required Package Imports
   */
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,9 +41,10 @@ public class MonitoringIO{
      * Method for implementing the menu options and displaying them 
      */
     public static void menuController() {
+        int choice = 0;
 
         /**
-         * Scanner to take iput from the user
+         * Scanner to take input from the user
          */
         Scanner input = new Scanner(System.in);
 
@@ -51,8 +53,11 @@ public class MonitoringIO{
         System.out.println("3. Show statistics");
         System.out.println("0. Exit");
 
-        //String str = input.nextLine();
-        int choice = input.nextInt();
+        try{
+            choice = input.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("Wrong input");
+        }
 
         /**
          * Branch statements for the menu 
