@@ -25,6 +25,8 @@ public class GalamseyAftObs extends JFrame {
 	private JTextField LongTxt;
 	private JTextField yearStartedTxt;
 
+	private Observatory observatory;
+
 	/**
 	 * Launch the application.
 	 */
@@ -120,8 +122,8 @@ public class GalamseyAftObs extends JFrame {
 				Double LatitudeTxt = Double.parseDouble(LatTxt.getText());
 				int yearStd = Integer.parseInt(yearStartedTxt.getText());
 
-				MonitoringIO.currentObservatory.createEvent(Galamsey.colour.valueOf(vegCol.toLowerCase()), 
-				ColourValue, new Position (LatitudeTxt, LongitudeTxt), yearStd);	
+				observatory.createEvent(Galamsey.colour.valueOf(vegCol.toLowerCase()),
+				ColourValue, new Position (LatitudeTxt, LongitudeTxt), yearStd);
 				JOptionPane.showMessageDialog(finishBt2, "Galamsey Record Created Successfully!!");
 
 			}
@@ -156,6 +158,10 @@ public class GalamseyAftObs extends JFrame {
 		});
 		exitBt2.setBounds(354, 231, 91, 29);
 		contentPane.add(exitBt2);
+	}
+
+	public void setObservatory(Observatory o ){
+		this.observatory = o;
 	}
 }
 	
