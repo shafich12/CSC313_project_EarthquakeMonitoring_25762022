@@ -74,6 +74,7 @@ public class GeneralStats {
 			public void actionPerformed(ActionEvent e) {
 				PieChartSample pc = new PieChartSample();
 				pc.main(null);
+
 			}
 		});
 		btnPieButton.setBounds(500, 270, 89, 23);
