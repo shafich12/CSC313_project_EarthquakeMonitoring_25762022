@@ -66,7 +66,7 @@ public class ObservatoryInfo extends JFrame {
 		yearStarted.setBounds(17, 174, 202, 16);
 		contentPane.add(yearStarted);
 		
-		JLabel obsData = new JLabel("Enter Observatory Data");
+		JLabel obsData = new JLabel("Enter Observatory Name");
 		obsData.setHorizontalAlignment(SwingConstants.LEFT);
 		obsData.setBounds(17, 58, 152, 16);
 		contentPane.add(obsData);
@@ -127,8 +127,7 @@ public class ObservatoryInfo extends JFrame {
 			public void mouseClicked(MouseEvent e) {
                 MonitoringGUI monitoringGui = new MonitoringGUI();
                 monitoringGui.frame.setVisible(true);
-                //monitoringGui.frame.setVisible(true);
-                
+                dispose();
 			}
 		});
 		menuBt.setBounds(332, 229, 112, 29);

@@ -19,9 +19,13 @@ public class Database {
     ResultSet data;
 
     public Database(){
-        url = "jdbc:mysql://remotemysql.com:3306/LtR8HkXbTo";
-        uname = "LtR8HkXbTo";
-        pass = "0TuZ7o8Uyx";
+//        url = "jdbc:mysql://remotemysql.com:3306/LtR8HkXbTo";
+//        uname = "LtR8HkXbTo";
+//        pass = "0TuZ7o8Uyx";
+
+        url = "jdbc:mysql://localhost:3306/galamsey";
+        uname = "root";
+        pass = "%loulou%";
 
         try{
             Class.forName("com.mysql.jdbc.Driver");

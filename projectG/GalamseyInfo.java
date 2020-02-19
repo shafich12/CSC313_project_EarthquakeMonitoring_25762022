@@ -91,6 +91,7 @@ public class GalamseyInfo extends JFrame {
                 public void mouseClicked(MouseEvent e) {
                     MonitoringGUI monitoringGui = new MonitoringGUI();
                     monitoringGui.frame.setVisible(true);
+                    dispose();
                 }
             });
             BackBt.setBounds(6, 243, 117, 29);
@@ -106,9 +107,9 @@ public class GalamseyInfo extends JFrame {
             NewObsBt.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    dispose();
                     ObservatoryInfo observatory = new ObservatoryInfo();
                     observatory.setVisible(true);
+                    dispose();
                 }
             });
             NewObsBt.setBounds(153, 200, 117, 29);
