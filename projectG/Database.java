@@ -119,7 +119,7 @@ public class Database {
 
     public ResultSet showAllRecords() throws SQLException{
 
-        String query = "SELECT * FROM galamseys";
+        String query = "SELECT vegColor, colorValue, latitude, longitude, yearRecorded, observatoryName FROM galamseys";
         pst = con.prepareStatement(query);
 
         return pst.executeQuery();

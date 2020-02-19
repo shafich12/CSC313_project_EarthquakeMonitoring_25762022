@@ -40,12 +40,12 @@ public class GeneralStats {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 620, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 25, 414, 197);
+		scrollPane.setBounds(10, 35, 600, 197);
 		frame.getContentPane().add(scrollPane);
 
 		generalStatsTable = new JTable();
@@ -54,7 +54,7 @@ public class GeneralStats {
 		
 		JLabel lblNewLabel = new JLabel("General Statistics");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel.setBounds(121, 0, 203, 31);
+		lblNewLabel.setBounds(200, 0, 203, 31);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Back ");
@@ -65,8 +65,19 @@ public class GeneralStats {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(335, 233, 89, 23);
+		btnNewButton.setBounds(500, 240, 89, 23);
 		frame.getContentPane().add(btnNewButton);
+
+		JButton btnPieButton = new JButton("Pie Chart");
+		btnPieButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PieChartSample pc = new PieChartSample();
+				pc.main(null);
+			}
+		});
+		btnPieButton.setBounds(500, 270, 89, 23);
+		frame.getContentPane().add(btnPieButton);
 	}
 
 	public void populateTable(){
