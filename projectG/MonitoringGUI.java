@@ -115,7 +115,10 @@ public class MonitoringGUI {
 		labelBt.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		labelBt.setBounds(0, 0, 690, 53);
 		labelBt.setHorizontalAlignment(SwingConstants.CENTER);
+
+		frame.getContentPane().add(labelBt, BorderLayout.NORTH);
+
 		frame.getContentPane().add(labelBt);
 	}
-
 }
+

@@ -1,5 +1,12 @@
+/**
+ * Required packages to be imported
+ */
+
 import java.sql.*;
 
+/**
+ *
+ */
 public class Database {
 
     String url;
