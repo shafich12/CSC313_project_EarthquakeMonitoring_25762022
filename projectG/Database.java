@@ -64,7 +64,7 @@ public class Database {
     public String insertGalamsey(Galamsey g) throws SQLException{
 
         String query = "INSERT INTO galamseys(vegColor, colorValue, latitude, longitude, yearRecorded, observatoryName)\n" +
-                "VALUES (?, ?, ?, ?, ?, ?);";
+                "VALUES (?, ?, ?, ?, ?, ?)";
         pst = con.prepareStatement(query);
 
         pst.setString(1, g.getVegColor().toString());

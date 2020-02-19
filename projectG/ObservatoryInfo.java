@@ -95,17 +95,26 @@ public class ObservatoryInfo extends JFrame {
 		finishBt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String name = obsName.getText();
-				String country = countryLoc.getText();
-				int area = Integer.parseInt(areaCov.getText());
-				int yearSt = Integer.parseInt(year.getText());
-                Observatory observatory = new Observatory(name, country, area, yearSt);
-                try{
-                	observatory.addToDB();
-				}catch (SQLException p){
-                	p.printStackTrace();
+				if(obsName.getText().isEmpty() || countryLoc.getText().isEmpty() || areaCov.getText().isEmpty() || year.getText().isEmpty()){
+					JOptionPane.showMessageDialog(finishBt, "Fields cannot be empty.");
+				}else {
+					try {
+						String name = obsName.getText();
+						String country = countryLoc.getText();
+						int area = Integer.parseInt(areaCov.getText());
+						int yearSt = Integer.parseInt(year.getText());
+
+						Observatory observatory = new Observatory(name, country, area, yearSt);
+						observatory.addToDB();
+						JOptionPane.showMessageDialog(finishBt, "Observatory Created Successfully!!");
+					} catch (SQLException p) {
+						p.printStackTrace();
+					} catch (NumberFormatException n){
+						JOptionPane.showMessageDialog(finishBt, "Wrong values passed into field");
+					}
+
 				}
-				JOptionPane.showMessageDialog(finishBt, "Observatory Created Successfully!!");
+
 			}
 		});
 		finishBt.setFont(new Font("SansSerif", Font.PLAIN, 23));

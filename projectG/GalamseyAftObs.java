@@ -116,15 +116,27 @@ public class GalamseyAftObs extends JFrame {
 		finishBt2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String vegCol = VegColTxt.getText();
-				int ColourValue = Integer.parseInt(ColValTxt.getText());
-				Double LongitudeTxt = Double.parseDouble(LongTxt.getText());
-				Double LatitudeTxt = Double.parseDouble(LatTxt.getText());
-				int yearStd = Integer.parseInt(yearStartedTxt.getText());
 
-				observatory.createEvent(Galamsey.colour.valueOf(vegCol.toLowerCase()),
-				ColourValue, new Position (LatitudeTxt, LongitudeTxt), yearStd);
-				JOptionPane.showMessageDialog(finishBt2, "Galamsey Record Created Successfully!!");
+				if(VegColTxt.getText().isEmpty() || ColValTxt.getText().isEmpty() || LongTxt.getText().isEmpty()
+				|| LatTxt.getText().isEmpty() || yearStartedTxt.getText().isEmpty()){
+					JOptionPane.showMessageDialog(finishBt2, "Fields cannot be empty");
+				}else {
+					try {
+						String vegCol = VegColTxt.getText();
+						int ColourValue = Integer.parseInt(ColValTxt.getText());
+						double LongitudeTxt = Double.parseDouble(LongTxt.getText());
+						double LatitudeTxt = Double.parseDouble(LatTxt.getText());
+						int yearStd = Integer.parseInt(yearStartedTxt.getText());
+
+						observatory.createEvent(Galamsey.colour.valueOf(vegCol.toLowerCase()),
+								ColourValue, new Position(LatitudeTxt, LongitudeTxt), yearStd);
+						JOptionPane.showMessageDialog(finishBt2, "Galamsey Record Created Successfully!!");
+					} catch(NumberFormatException n){
+						JOptionPane.showMessageDialog(finishBt2, "Wrong values in field.");
+					} catch(IllegalArgumentException a){
+						JOptionPane.showMessageDialog(finishBt2, "Please choose the right colour option.");
+					}
+				}
 
 			}
 		});
