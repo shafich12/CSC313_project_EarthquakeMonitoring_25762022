@@ -261,7 +261,7 @@ public class MonitoringIO{
     public static void loadFromDB(){
 
         /**
-         * Error handling for the Database
+         * Error handling for the Database when loading observatory details
          */
         try {
             MonitoringIO.db.initialLoad();
@@ -269,6 +269,9 @@ public class MonitoringIO{
             e.printStackTrace();
         }
 
+        /**
+         * Error hanlding for the database when loading Galamsey details
+         */
         try{
             MonitoringIO.db.loadGalamseys();
         } catch (SQLException e){
