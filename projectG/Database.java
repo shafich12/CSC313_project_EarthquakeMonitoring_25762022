@@ -125,4 +125,21 @@ public class Database {
         return pst.executeQuery();
     }
 
+    public int countRecords(int colourValue) throws SQLException{
+
+        int value = 0;
+
+        String query = "select COUNT(colorValue) from galamseys where colorValue = ?";
+        pst = con.prepareStatement(query);
+
+        pst.setInt(1, colourValue);
+        data = pst.executeQuery();
+
+        while(data.next()){
+            value = data.getInt(1);
+        }
+
+        return value;
+    }
+
 }
