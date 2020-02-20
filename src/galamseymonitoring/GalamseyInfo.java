@@ -2,16 +2,11 @@ package galamseymonitoring;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JComboBox;
 
 
 public class GalamseyInfo extends JFrame {
@@ -44,7 +39,7 @@ public class GalamseyInfo extends JFrame {
 
         public GalamseyInfo() {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setBounds(100, 100, 450, 300);
+            setBounds(300, 300, 450, 300);
             contentPane = new JPanel();
             contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
             setContentPane(contentPane);
@@ -124,10 +119,20 @@ public class GalamseyInfo extends JFrame {
                         galamseyAftObs.setVisible(true);
                         dispose();
                     }
+
+
                 }
             });
             nextBt.setBounds(153, 120, 117, 29);
             contentPane.add(nextBt);
+
+            JLabel lblNewLabel = new JLabel("New label");
+
+            lblNewLabel.setIcon(new ImageIcon("imagesrc/pic3.jpg"));
+
+            lblNewLabel.setBounds(0, 0, 450, 300);
+
+            getContentPane().add(lblNewLabel);
         }
 
         public void addToComboBox(){

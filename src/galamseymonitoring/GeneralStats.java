@@ -7,6 +7,9 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.chart.PieChart;
 import net.proteanit.sql.DbUtils;
 
 public class GeneralStats {
@@ -42,7 +45,7 @@ public class GeneralStats {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 620, 350);
+		frame.setBounds(300, 300, 620, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -69,18 +72,6 @@ public class GeneralStats {
 		});
 		btnNewButton.setBounds(500, 240, 89, 23);
 		frame.getContentPane().add(btnNewButton);
-
-		JButton btnPieButton = new JButton("Pie Chart");
-		btnPieButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-//				PieChartSample pc = new PieChartSample();
-//				pc.main(null);
-
-			}
-		});
-		btnPieButton.setBounds(500, 270, 89, 23);
-		frame.getContentPane().add(btnPieButton);
 	}
 
 	public void populateTable(){

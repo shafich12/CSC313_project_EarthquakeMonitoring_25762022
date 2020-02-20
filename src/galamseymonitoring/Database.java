@@ -29,7 +29,8 @@ public class Database {
             con = DriverManager.getConnection(url,uname,pass);
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Failed to get connection to database. Please check your internet connection.");
+            System.exit(0);
         }
     }
 

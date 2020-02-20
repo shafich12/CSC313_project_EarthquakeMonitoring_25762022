@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GalamseyMonitoring:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GalamseyMonitoring_jar</output-path>
+    <root id="archive" name="GalamseyMonitoring.jar">
+      <element id="module-output" name="GalamseyMonitoring" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/rs2xml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jfreechart-1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.48.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

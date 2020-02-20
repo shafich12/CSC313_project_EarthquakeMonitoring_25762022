@@ -2,15 +2,12 @@ package galamseymonitoring;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
-import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -55,7 +52,7 @@ public class MonitoringGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 690, 343);
+		frame.setBounds(300, 300, 690, 364);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JButton observatoryDataBt = new JButton("Enter Observatory Data");
@@ -102,7 +99,8 @@ public class MonitoringGUI {
 		frame.getContentPane().add(showStatsBt);
 
 		JButton exitBt = new JButton("Exit");
-		exitBt.setBounds(287, 284, 122, 31);
+		exitBt.setForeground(Color.RED);
+		exitBt.setBounds(287, 284, 122, 37);
 		exitBt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -114,12 +112,20 @@ public class MonitoringGUI {
 
 		JLabel labelBt = new JLabel("PENTAGON GALAMSEY MONITOR");
 		labelBt.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		labelBt.setForeground(Color.WHITE);
 		labelBt.setBounds(0, 0, 690, 53);
 		labelBt.setHorizontalAlignment(SwingConstants.CENTER);
 
 		frame.getContentPane().add(labelBt, BorderLayout.NORTH);
 
 		frame.getContentPane().add(labelBt);
+
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("imagesrc/home.jpg"));
+		lblNewLabel.setBounds(0, 0, 690, 343);
+		frame.getContentPane().add(lblNewLabel);
 	}
+
+
 }
 

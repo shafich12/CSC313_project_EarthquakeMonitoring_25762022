@@ -1,16 +1,9 @@
 package galamseymonitoring;
 
-import java.awt.EventQueue;
+import java.awt.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -45,7 +38,7 @@ public class ObservatoryInfo extends JFrame {
 	 */
 	public ObservatoryInfo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(300, 300, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -90,6 +83,8 @@ public class ObservatoryInfo extends JFrame {
 		year.setBounds(221, 169, 130, 26);
 		contentPane.add(year);
 		year.setColumns(10);
+
+
 		
 		JButton finishBt = new JButton("FINISH");
 		finishBt.addMouseListener(new MouseAdapter() {
@@ -117,7 +112,8 @@ public class ObservatoryInfo extends JFrame {
 
 			}
 		});
-		finishBt.setFont(new Font("SansSerif", Font.PLAIN, 23));
+		finishBt.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		finishBt.setForeground(Color.GREEN);
 		finishBt.setBounds(104, 229, 117, 29);
 		contentPane.add(finishBt);
 		
@@ -132,6 +128,11 @@ public class ObservatoryInfo extends JFrame {
 		});
 		menuBt.setBounds(332, 229, 112, 29);
 		contentPane.add(menuBt);
+
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("imagesrc/pic3.jpg"));
+		lblNewLabel.setBounds(0, 0, 450, 300);
+		getContentPane().add(lblNewLabel);
 	}
 }
 

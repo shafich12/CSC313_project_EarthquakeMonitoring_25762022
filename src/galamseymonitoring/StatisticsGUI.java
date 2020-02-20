@@ -2,12 +2,9 @@ package galamseymonitoring;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -44,7 +41,7 @@ public class StatisticsGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(0, 0, 0));
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(300, 300, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -99,6 +96,11 @@ public class StatisticsGUI {
 		});
 		btnNewButton_3.setBounds(310, 227, 114, 23);
 		frame.getContentPane().add(btnNewButton_3);
+
+		JLabel lbl = new JLabel("New label");
+		lbl.setIcon(new ImageIcon("imagesrc/pic3.jpg"));
+		lbl.setBounds(0, 0, 450, 300);
+		frame.getContentPane().add(lbl);
 	}
 	}
 
