@@ -98,7 +98,7 @@ public class StatisticsGUI {
 		frame.getContentPane().add(btnNewButton_3);
 
 		JLabel lbl = new JLabel("New label");
-		lbl.setIcon(new ImageIcon("imagesrc/pic3.jpg"));
+		lbl.setIcon(new ImageIcon(getClass().getResource("/resources/images/pic3.jpg")));
 		lbl.setBounds(0, 0, 450, 300);
 		frame.getContentPane().add(lbl);
 	}

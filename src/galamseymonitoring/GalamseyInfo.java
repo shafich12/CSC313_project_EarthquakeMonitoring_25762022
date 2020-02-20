@@ -128,7 +128,7 @@ public class GalamseyInfo extends JFrame {
 
             JLabel lblNewLabel = new JLabel("New label");
 
-            lblNewLabel.setIcon(new ImageIcon("imagesrc/pic3.jpg"));
+            lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/resources/images/pic3.jpg")));
 
             lblNewLabel.setBounds(0, 0, 450, 300);
 
