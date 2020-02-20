@@ -1,4 +1,8 @@
 package galamseymonitoring;
+/**
+ * @version 2.0
+ */
+
 
 import java.awt.EventQueue;
 
