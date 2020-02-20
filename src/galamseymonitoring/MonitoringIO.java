@@ -2,7 +2,9 @@ package galamseymonitoring; /**
  * @author Kofi Boampong Benefo- Bandoh
  * @author Jeffrey Kafui Adorkor 
  * @author Yesu K. Apraku 
- * @author Shafic Hijazi 
+ * @author Shafic Hijazi
+ *
+ * @version 1.0
  * Intermidiate Computer Programing 
  * MonitoringIO  class
  */

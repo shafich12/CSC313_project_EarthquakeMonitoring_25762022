@@ -1,4 +1,5 @@
-package galamseymonitoring; /**
+package galamseymonitoring;
+/**
  * @author Kofi Boampong Benefo-Bandoh
  * @author Jeffrey Kafui Adorkor
  * @author Yesu K. Apraku

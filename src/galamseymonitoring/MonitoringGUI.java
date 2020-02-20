@@ -1,4 +1,8 @@
 package galamseymonitoring;
+/**
+ * @version 2.0
+ */
+
 
 import java.awt.EventQueue;
 
@@ -121,7 +125,7 @@ public class MonitoringGUI {
 		frame.getContentPane().add(labelBt);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("imagesrc/home.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/resources/images/home.jpg")));
 		lblNewLabel.setBounds(0, 0, 690, 343);
 		frame.getContentPane().add(lblNewLabel);
 	}
